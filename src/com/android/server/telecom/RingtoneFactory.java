@@ -88,11 +88,8 @@ public class RingtoneFactory {
             Context contextToUse = hasDefaultRingtoneForUser(userContext) ? userContext : mContext;
             Uri defaultRingtoneUri;
             if (UserManager.get(contextToUse).isUserUnlocked(contextToUse.getUserId())) {
-                defaultRingtoneUri =
-                        RingtoneManager.getActualDefaultRingtoneUriForPhoneAccountHandle(
-                                contextToUse,
-                                RingtoneManager.TYPE_RINGTONE,
-                                incomingCall.getTargetPhoneAccount());
+                defaultRingtoneUri = RingtoneManager.getActualDefaultRingtoneUri(contextToUse,
+                        RingtoneManager.TYPE_RINGTONE);
             } else {
                 defaultRingtoneUri = Settings.System.DEFAULT_RINGTONE_URI;
             }
